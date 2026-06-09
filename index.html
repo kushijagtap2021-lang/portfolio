@@ -1,261 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kushi Jagtap | Vogue Inspired Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kushi Jagtap | Vogue-Inspired Portfolio</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+<style>
+:root{
+    --pink:#f7b6d2;
+    --rose:#e88ab0;
+    --lavender:#e7dcff;
+    --cream:#fffaf4;
+    --gold:#d4af37;
+    --text:#4b3f48;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#fff8fb,#fff1f8,#fdf7ff);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* Floating Background */
+
+.blob{
+    position:fixed;
+    border-radius:50%;
+    z-index:-1;
+    opacity:.25;
+    animation:float 8s ease-in-out infinite;
+}
+
+.blob1{
+    width:280px;
+    height:280px;
+    background:#ffd6e7;
+    top:-50px;
+    left:-70px;
+}
+
+.blob2{
+    width:220px;
+    height:220px;
+    background:#d9c7ff;
+    right:-70px;
+    top:250px;
+    animation-delay:2s;
+}
+
+.blob3{
+    width:180px;
+    height:180px;
+    background:#ffe9b5;
+    bottom:50px;
+    left:100px;
+    animation-delay:4s;
+}
+
+/* Header */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);
+    z-index:1000;
+    transition:.3s;
+}
+
+header.scrolled{
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#555;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--rose);
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero-card{
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(20px);
+    border-radius:35px;
+    padding:60px;
+    max-width:850px;
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:6rem;
+    line-height:.95;
+    letter-spacing:6px;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:1.15rem;
+}
+
+/* Heart Button */
+
+.heart-link{
+    display:inline-block;
+    margin-top:40px;
+}
+
+.heart{
+    position:relative;
+    width:80px;
+    height:80px;
+    background:var(--pink);
+    transform:rotate(-45deg);
+    transition:.4s;
+}
+
+.heart:hover{
+    transform:rotate(-45deg) scale(1.1);
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:80px;
+    background:var(--pink);
+    border-radius:50%;
+}
+
+.heart::before{
+    top:-40px;
+    left:0;
+}
+
+.heart::after{
+    left:40px;
+    top:0;
+}
+
+.heart span{
+    position:absolute;
+    z-index:10;
+    width:60px;
+    text-align:center;
+    left:10px;
+    top:28px;
+    transform:rotate(45deg);
+    color:white;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* Sections */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:4rem;
+    color:var(--rose);
+}
+
+.about{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:2;
+    font-size:1.1rem;
+}
+
+/* Cards */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    transition:.4s;
+    opacity:0;
+    transform:translateY(40px);
+}
+
+.card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--rose);
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+/* Contact */
+
+.contact-box{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.contact-box p{
+    margin:12px 0;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(135deg,#fff0f7,#fdf4ff,#fff8f3);
+}
+
+footer h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    color:var(--rose);
+}
+
+footer p{
+    margin-top:10px;
+}
+
+/* Animation */
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:3.5rem;
+    }
+
+    .hero-card{
+        padding:35px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .section-title h2{
+        font-size:2.8rem;
+    }
+}
+</style>
 </head>
-
 <body>
 
-    <!-- Decorative Background Bubbles -->
-    <div class="bubble b1"></div>
-    <div class="bubble b2"></div>
-    <div class="bubble b3"></div>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
 
-    <!-- Header -->
-    <header class="header">
+<header id="header">
+    <div class="logo">KUSHI JAGTAP</div>
 
-        <div class="logo">
-            KUSHI JAGTAP
-        </div>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#likes">Interests</a>
+        <a href="#values">Values</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-        <nav class="nav-links">
-            <a href="#about">About Me</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#likes">Interests</a>
-            <a href="#values">Values</a>
-            <a href="#contact">Contact</a>
-        </nav>
+<section class="hero">
+    <div class="hero-card">
 
-    </header>
+        <h1>KUSHI<br>JAGTAP</h1>
 
-    <!-- Hero Section -->
-    <section class="hero">
+        <p>
+            Grade 10 Student • Artist • Martial Artist • Tech Enthusiast
+        </p>
 
-        <div class="hero-content">
-
-            <h1>
-                KUSHI<br>
-                JAGTAP
-            </h1>
-
-            <p>
-                Grade 10 Student • Artist • Martial Artist • Tech Enthusiast
-            </p>
-
-            <a href="#about">
-                <button class="heart-btn">
-                    <span>Explore</span>
-                </button>
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- About Me -->
-    <section id="about">
-
-        <div class="title">
-            <h2>About Me</h2>
-        </div>
-
-        <div class="about-box">
-
-            Hello! My name is <strong>Kushi Jagtap</strong>.
-            I am a Grade 10 student at <strong>Chrysalis High School</strong>.
-
-            I enjoy learning new things, helping people, and exploring
-            technology. I have a strong interest in Computer Applications
-            and creative activities. I love drawing, listening to music,
-            and discovering new opportunities to grow and improve myself.
-
-        </div>
-
-    </section>
-
-    <!-- Achievements -->
-    <section id="achievements">
-
-        <div class="title">
-            <h2>Achievements</h2>
-        </div>
-
-        <div class="grid">
-
-            <div class="card">
-                <h3>🥋 Green Belt</h3>
-                <p>
-                    Proud holder of a Green Belt in Martial Arts,
-                    demonstrating discipline, determination, and consistency.
-                </p>
+        <a href="#about" class="heart-link">
+            <div class="heart">
+                <span>Explore</span>
             </div>
+        </a>
 
-            <div class="card">
-                <h3>🎓 Student Life</h3>
-                <p>
-                    Successfully balancing academics, creativity,
-                    extracurricular activities, and personal growth.
-                </p>
-            </div>
+    </div>
+</section>
 
-            <div class="card">
-                <h3>💖 Helping Others</h3>
-                <p>
-                    I enjoy supporting friends and helping others
-                    whenever I can.
-                </p>
-            </div>
+<section id="about">
+    <div class="section-title">
+        <h2>About Me</h2>
+    </div>
 
+    <div class="about">
+        Hello! My name is <strong>Kushi Jagtap</strong>. I am a Grade 10 student at
+        <strong>Chrysalis High School</strong>. I have earned a Green Belt in Martial Arts.
+        I enjoy helping others, drawing, listening to music, and learning about computer
+        applications and technology. I love exploring creative ideas and continuously
+        improving my skills.
+    </div>
+</section>
+
+<section id="achievements">
+    <div class="section-title">
+        <h2>Achievements</h2>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🥋 Green Belt</h3>
+            <p>Earned a Green Belt in Martial Arts through dedication and discipline.</p>
         </div>
 
-    </section>
-
-    <!-- Likes & Interests -->
-    <section id="likes">
-
-        <div class="title">
-            <h2>Likes & Interests</h2>
+        <div class="card">
+            <h3>🎓 Student Life</h3>
+            <p>Balancing academics, creativity, extracurricular activities, and personal growth.</p>
         </div>
 
-        <div class="grid">
-
-            <div class="card">
-                <h3>🎨 Drawing</h3>
-                <p>
-                    Drawing allows me to express creativity
-                    and bring ideas to life.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🎵 Music</h3>
-                <p>
-                    Listening to music inspires me,
-                    helps me relax, and boosts my mood.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>💻 Computer Applications</h3>
-                <p>
-                    I enjoy learning about technology,
-                    digital tools, and computer applications.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🌸 Creativity</h3>
-                <p>
-                    I love exploring new ideas,
-                    creating beautiful things, and learning new skills.
-                </p>
-            </div>
-
+        <div class="card">
+            <h3>💖 Helping Others</h3>
+            <p>I enjoy supporting friends and helping people whenever possible.</p>
         </div>
 
-    </section>
+    </div>
+</section>
 
-    <!-- Values -->
-    <section id="values">
+<section id="likes">
+    <div class="section-title">
+        <h2>Likes & Interests</h2>
+    </div>
 
-        <div class="title">
-            <h2>My Values</h2>
+    <div class="grid">
+
+        <div class="card">
+            <h3>🎨 Drawing</h3>
+            <p>I love creating artwork and expressing ideas visually.</p>
         </div>
 
-        <div class="grid">
-
-            <div class="card">
-                <h3>💖 Kindness</h3>
-                <p>
-                    I believe small acts of kindness can make a big difference.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🌟 Creativity</h3>
-                <p>
-                    Creativity helps me think differently and solve problems.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>📚 Learning</h3>
-                <p>
-                    I enjoy discovering new skills and improving myself every day.
-                </p>
-            </div>
-
+        <div class="card">
+            <h3>🎵 Music</h3>
+            <p>Music inspires me, helps me relax, and keeps me motivated.</p>
         </div>
 
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact">
-
-        <div class="title">
-            <h2>Contact Me</h2>
+        <div class="card">
+            <h3>💻 Computer Applications</h3>
+            <p>I enjoy exploring technology, software, and digital creativity.</p>
         </div>
 
-        <div class="contact-box">
+    </div>
+</section>
 
-            <p><strong>👩 Name:</strong> Kushi Jagtap</p>
+<section id="values">
+    <div class="section-title">
+        <h2>My Values</h2>
+    </div>
 
-            <p><strong>🏫 School:</strong> Chrysalis High School</p>
+    <div class="grid">
 
-            <p><strong>📧 Gmail:</strong> kushi@gmail.com</p>
-
-            <p><strong>📱 WhatsApp:</strong> +91 646 5688 563</p>
-
-            <button class="heart-btn">
-                <span>Hello!</span>
-            </button>
-
+        <div class="card">
+            <h3>💖 Kindness</h3>
+            <p>I believe kindness can positively impact people's lives.</p>
         </div>
 
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-
-        <div class="footer-content">
-
-            <h2>KUSHI JAGTAP</h2>
-
-            <p>
-                Grade 10 Student • Artist • Martial Artist • Tech Enthusiast
-            </p>
-
-            <div class="footer-links">
-
-                <a href="#about">About</a>
-                <a href="#achievements">Achievements</a>
-                <a href="#likes">Interests</a>
-                <a href="#values">Values</a>
-                <a href="#contact">Contact</a>
-
-            </div>
-
-            <p class="copyright">
-                © 2026 Kushi Jagtap • Designed with ♡
-            </p>
-
+        <div class="card">
+            <h3>🌟 Creativity</h3>
+            <p>Creativity helps me think differently and express myself.</p>
         </div>
 
-    </footer>
+        <div class="card">
+            <h3>📚 Learning</h3>
+            <p>I enjoy discovering new ideas and improving every day.</p>
+        </div>
 
-    <script src="script.js"></script>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-title">
+        <h2>Contact Me</h2>
+    </div>
+
+    <div class="contact-box">
+        <p><strong>Name:</strong> Kushi Jagtap</p>
+        <p><strong>School:</strong> Chrysalis High School</p>
+        <p><strong>Email:</strong> kushi@gmail.com</p>
+        <p><strong>WhatsApp:</strong> +91 646 5688 563</p>
+    </div>
+</section>
+
+<footer>
+    <h2>KUSHI JAGTAP</h2>
+    <p>Grade 10 Student • Artist • Martial Artist • Tech Enthusiast</p>
+    <p style="margin-top:20px;">© <span id="year"></span> Kushi Jagtap • Designed with ♡</p>
+</footer>
+
+<script>
+// Dynamic Year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Header Scroll Effect
+window.addEventListener("scroll", () => {
+    document.getElementById("header").classList.toggle(
+        "scrolled",
+        window.scrollY > 50
+    );
+});
+
+// Card Reveal Animation
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},{
+    threshold:0.2
+});
+
+cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
-
 </html>
