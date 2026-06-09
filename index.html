@@ -1,476 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kushi Jagtap | Personal Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushi Jagtap | Vogue Inspired Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#fff7f7,#fff0f5,#fdf6ff);
-color:#4b3f48;
-overflow-x:hidden;
-}
-
-section{
-padding:90px 10%;
-}
-
-h1,h2,h3{
-font-family:'Cormorant Garamond',serif;
-}
-
-.navbar{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(15px);
-padding:20px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-}
-
-.logo{
-font-size:2rem;
-font-weight:700;
-letter-spacing:3px;
-}
-
-.nav-links{
-display:flex;
-gap:25px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:#444;
-font-weight:500;
-transition:.3s;
-}
-
-.nav-links a:hover{
-color:#d67ba8;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-background:
-linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,.5)),
-url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80");
-background-size:cover;
-background-position:center;
-}
-
-.hero-content{
-background:rgba(255,255,255,0.55);
-backdrop-filter:blur(15px);
-padding:50px;
-border-radius:30px;
-max-width:850px;
-}
-
-.hero h1{
-font-size:6rem;
-letter-spacing:6px;
-line-height:1;
-color:#2d2d2d;
-}
-
-.hero p{
-margin-top:20px;
-font-size:1.2rem;
-color:#555;
-}
-
-/* HEART BUTTON */
-
-.heart-btn{
-position:relative;
-width:80px;
-height:72px;
-background:#f7a8c5;
-transform:rotate(-45deg);
-display:inline-block;
-margin:35px;
-border:none;
-cursor:pointer;
-transition:.4s;
-}
-
-.heart-btn:before,
-.heart-btn:after{
-content:'';
-position:absolute;
-width:80px;
-height:80px;
-background:#f7a8c5;
-border-radius:50%;
-}
-
-.heart-btn:before{
-top:-40px;
-left:0;
-}
-
-.heart-btn:after{
-left:40px;
-top:0;
-}
-
-.heart-btn span{
-position:absolute;
-transform:rotate(45deg);
-top:22px;
-left:12px;
-font-size:13px;
-font-weight:600;
-color:white;
-z-index:5;
-width:60px;
-text-align:center;
-}
-
-.heart-btn:hover{
-transform:rotate(-45deg) scale(1.1);
-}
-
-/* SECTION TITLE */
-
-.title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.title h2{
-font-size:4rem;
-color:#d67ba8;
-}
-
-/* CARDS */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.card{
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:25px;
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-transition:.4s;
-border:1px solid rgba(255,255,255,.5);
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card h3{
-font-size:2rem;
-margin-bottom:15px;
-color:#c76e9d;
-}
-
-/* ABOUT */
-
-.about-box{
-max-width:900px;
-margin:auto;
-text-align:center;
-font-size:1.1rem;
-line-height:1.9;
-}
-
-/* CONTACT */
-
-.contact{
-text-align:center;
-}
-
-.contact-box{
-background:white;
-padding:40px;
-border-radius:30px;
-max-width:700px;
-margin:auto;
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-}
-
-.contact p{
-margin:15px 0;
-font-size:1.1rem;
-}
-
-.footer{
-text-align:center;
-padding:30px;
-color:#777;
-}
-
-/* FLOATING DECOR */
-
-.bubble{
-position:fixed;
-border-radius:50%;
-opacity:.2;
-z-index:-1;
-}
-
-.b1{
-width:250px;
-height:250px;
-background:#ffd6e7;
-top:50px;
-left:-80px;
-}
-
-.b2{
-width:200px;
-height:200px;
-background:#d9c7ff;
-right:-60px;
-top:300px;
-}
-
-.b3{
-width:180px;
-height:180px;
-background:#ffe9b3;
-bottom:50px;
-left:100px;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:3.5rem;
-}
-
-.title h2{
-font-size:2.8rem;
-}
-
-.nav-links{
-display:none;
-}
-
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="bubble b1"></div>
-<div class="bubble b2"></div>
-<div class="bubble b3"></div>
+    <!-- Decorative Background Bubbles -->
+    <div class="bubble b1"></div>
+    <div class="bubble b2"></div>
+    <div class="bubble b3"></div>
 
-<nav class="navbar">
-<div class="logo">KJ</div>
+    <!-- Header -->
+    <header class="header">
 
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#achievements">Achievements</a>
-<a href="#likes">Likes</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
+        <div class="logo">
+            KUSHI JAGTAP
+        </div>
 
-<section class="hero">
+        <nav class="nav-links">
+            <a href="#about">About Me</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#likes">Interests</a>
+            <a href="#values">Values</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-<div class="hero-content">
-<h1>KUSHI<br>JAGTAP</h1>
+    </header>
 
-<p>
-Grade 10 Student • Creative Artist • Martial Arts Learner • Future Tech Enthusiast
-</p>
+    <!-- Hero Section -->
+    <section class="hero">
 
-<a href="#about">
-<button class="heart-btn">
-<span>Explore</span>
-</button>
-</a>
+        <div class="hero-content">
 
-</div>
+            <h1>
+                KUSHI<br>
+                JAGTAP
+            </h1>
 
-</section>
+            <p>
+                Grade 10 Student • Artist • Martial Artist • Tech Enthusiast
+            </p>
 
-<section id="about">
+            <a href="#about">
+                <button class="heart-btn">
+                    <span>Explore</span>
+                </button>
+            </a>
 
-<div class="title">
-<h2>About Me</h2>
-</div>
+        </div>
 
-<div class="about-box">
-Hello! My name is <strong>Kushi Jagtap</strong>. I am a Grade 10 student at
-<strong>Chrysalis High School</strong>. I enjoy learning new things, helping
-others, and exploring technology. I have a strong interest in Computer
-Applications and creativity. My hobbies include drawing, listening to music,
-and continuously improving my skills.
-</div>
+    </section>
 
-</section>
+    <!-- About Me -->
+    <section id="about">
 
-<section id="achievements">
+        <div class="title">
+            <h2>About Me</h2>
+        </div>
 
-<div class="title">
-<h2>Achievements</h2>
-</div>
+        <div class="about-box">
 
-<div class="grid">
+            Hello! My name is <strong>Kushi Jagtap</strong>.
+            I am a Grade 10 student at <strong>Chrysalis High School</strong>.
 
-<div class="card">
-<h3>🥋 Martial Arts</h3>
-<p>
-Proud holder of a Green Belt in Martial Arts, showcasing dedication,
-discipline, and perseverance.
-</p>
-</div>
+            I enjoy learning new things, helping people, and exploring
+            technology. I have a strong interest in Computer Applications
+            and creative activities. I love drawing, listening to music,
+            and discovering new opportunities to grow and improve myself.
 
-<div class="card">
-<h3>🎓 Student</h3>
-<p>
-Actively pursuing Grade 10 studies while balancing academics,
-creativity, and extracurricular activities.
-</p>
-</div>
+        </div>
 
-<div class="card">
-<h3>💖 Helping Others</h3>
-<p>
-I enjoy supporting and helping people whenever possible,
-making a positive impact around me.
-</p>
-</div>
+    </section>
 
-</div>
+    <!-- Achievements -->
+    <section id="achievements">
 
-</section>
+        <div class="title">
+            <h2>Achievements</h2>
+        </div>
 
-<section id="likes">
+        <div class="grid">
 
-<div class="title">
-<h2>Likes & Interests</h2>
-</div>
+            <div class="card">
+                <h3>🥋 Green Belt</h3>
+                <p>
+                    Proud holder of a Green Belt in Martial Arts,
+                    demonstrating discipline, determination, and consistency.
+                </p>
+            </div>
 
-<div class="grid">
+            <div class="card">
+                <h3>🎓 Student Life</h3>
+                <p>
+                    Successfully balancing academics, creativity,
+                    extracurricular activities, and personal growth.
+                </p>
+            </div>
 
-<div class="card">
-<h3>🎨 Drawing</h3>
-<p>
-I love expressing creativity through sketches, illustrations,
-and artwork.
-</p>
-</div>
+            <div class="card">
+                <h3>💖 Helping Others</h3>
+                <p>
+                    I enjoy supporting friends and helping others
+                    whenever I can.
+                </p>
+            </div>
 
-<div class="card">
-<h3>🎵 Music</h3>
-<p>
-Listening to music helps me relax, stay motivated,
-and feel inspired.
-</p>
-</div>
+        </div>
 
-<div class="card">
-<h3>💻 Computer Applications</h3>
-<p>
-I enjoy learning about technology, software,
-and digital creativity.
-</p>
-</div>
+    </section>
 
-<div class="card">
-<h3>🌸 Aesthetic Design</h3>
-<p>
-I admire beautiful layouts, elegant visuals,
-and creative presentation styles.
-</p>
-</div>
+    <!-- Likes & Interests -->
+    <section id="likes">
 
-</div>
+        <div class="title">
+            <h2>Likes & Interests</h2>
+        </div>
 
-</section>
+        <div class="grid">
 
-<section>
+            <div class="card">
+                <h3>🎨 Drawing</h3>
+                <p>
+                    Drawing allows me to express creativity
+                    and bring ideas to life.
+                </p>
+            </div>
 
-<div class="title">
-<h2>Dislikes</h2>
-</div>
+            <div class="card">
+                <h3>🎵 Music</h3>
+                <p>
+                    Listening to music inspires me,
+                    helps me relax, and boosts my mood.
+                </p>
+            </div>
 
-<div class="grid">
+            <div class="card">
+                <h3>💻 Computer Applications</h3>
+                <p>
+                    I enjoy learning about technology,
+                    digital tools, and computer applications.
+                </p>
+            </div>
 
-<div class="card">
-<h3>🚫 Negativity</h3>
-<p>
-I prefer positive environments and constructive attitudes.
-</p>
-</div>
+            <div class="card">
+                <h3>🌸 Creativity</h3>
+                <p>
+                    I love exploring new ideas,
+                    creating beautiful things, and learning new skills.
+                </p>
+            </div>
 
-<div class="card">
-<h3>🚫 Dishonesty</h3>
-<p>
-I value honesty, trust, and respect in relationships.
-</p>
-</div>
+        </div>
 
-<div class="card">
-<h3>🚫 Giving Up</h3>
-<p>
-Persistence and effort are important to me.
-</p>
-</div>
+    </section>
 
-</div>
+    <!-- Values -->
+    <section id="values">
 
-</section>
+        <div class="title">
+            <h2>My Values</h2>
+        </div>
 
-<section id="contact" class="contact">
+        <div class="grid">
 
-<div class="title">
-<h2>Contact Me</h2>
-</div>
+            <div class="card">
+                <h3>💖 Kindness</h3>
+                <p>
+                    I believe small acts of kindness can make a big difference.
+                </p>
+            </div>
 
-<div class="contact-box">
+            <div class="card">
+                <h3>🌟 Creativity</h3>
+                <p>
+                    Creativity helps me think differently and solve problems.
+                </p>
+            </div>
 
-<p><strong>👩 Name:</strong> Kushi Jagtap</p>
+            <div class="card">
+                <h3>📚 Learning</h3>
+                <p>
+                    I enjoy discovering new skills and improving myself every day.
+                </p>
+            </div>
 
-<p><strong>🏫 School:</strong> Chrysalis High School</p>
+        </div>
 
-<p><strong>📧 Email:</strong> kushi@gmail.com</p>
+    </section>
 
-<p><strong>📱 WhatsApp:</strong> +91 646 5688 563</p>
+    <!-- Contact -->
+    <section id="contact" class="contact">
 
-<button class="heart-btn">
-<span>Hello!</span>
-</button>
+        <div class="title">
+            <h2>Contact Me</h2>
+        </div>
 
-</div>
+        <div class="contact-box">
 
-</section>
+            <p><strong>👩 Name:</strong> Kushi Jagtap</p>
 
-<footer class="footer">
-© 2026 Kushi Jagtap • Vogue Inspired Aesthetic Portfolio
-</footer>
+            <p><strong>🏫 School:</strong> Chrysalis High School</p>
+
+            <p><strong>📧 Gmail:</strong> kushi@gmail.com</p>
+
+            <p><strong>📱 WhatsApp:</strong> +91 646 5688 563</p>
+
+            <button class="heart-btn">
+                <span>Hello!</span>
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <h2>KUSHI JAGTAP</h2>
+
+            <p>
+                Grade 10 Student • Artist • Martial Artist • Tech Enthusiast
+            </p>
+
+            <div class="footer-links">
+
+                <a href="#about">About</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#likes">Interests</a>
+                <a href="#values">Values</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Kushi Jagtap • Designed with ♡
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
